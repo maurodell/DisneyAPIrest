@@ -1,7 +1,8 @@
 package com.challenge.disney.app.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 @Entity
 @Table(name = "movies")
@@ -30,6 +37,8 @@ public class Movie implements Serializable{
 	private String img;
 	
 	@Column(name = "creation_date")
+	//@DateTimeFormat(pattern = "dd-MM-yyyy")
+	@JsonFormat(pattern = "dd-MMM-yyyy", locale="es")
 	private Date date;
 	
 	@Column(name = "qualification")

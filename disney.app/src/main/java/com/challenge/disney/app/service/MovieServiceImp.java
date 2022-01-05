@@ -56,4 +56,14 @@ public class MovieServiceImp implements MovieService{
 		return movieRepository.readGender(gender);
 	}
 
+	@Override
+	public Iterable<Movie> findAllOrderAsc() {
+		return movieRepository.readAllOrderAsc();
+	}
+
+	@Override
+	public Iterable<Movie> findAllOrderDesc() {
+		return movieRepository.readAllOrderDesc();
+	}
+
 }

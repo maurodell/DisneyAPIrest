@@ -20,4 +20,10 @@ public interface MovieRepository extends JpaRepository<Movie, Long>{
 	
 	@Query("SELECT c FROM Movie c WHERE c.gender LIKE :gender")
 	public Iterable<Movie> readGender(@Param("gender") String gender);
+
+	@Query("SELECT c FROM Movie c ORDER BY DATE(c.date) ASC")
+	public Iterable<Movie> readAllOrderAsc();
+	
+	@Query("SELECT c FROM Movie c ORDER BY DATE(c.date) DESC")
+	public Iterable<Movie> readAllOrderDesc();
 }

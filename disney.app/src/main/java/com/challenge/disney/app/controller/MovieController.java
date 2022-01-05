@@ -100,4 +100,29 @@ public class MovieController {
 		}
 		return ResponseEntity.ok(movie);
 	}
+	
+	@GetMapping("/gender/{gender}")
+	public List<Movie> readGender(@PathVariable(value = "gender") String gender){
+		List<Movie> movies = StreamSupport
+				.stream(movieService.readGender(gender).spliterator(), false)
+				.collect(Collectors.toList());
+		return movies;
+	}
+	
+	@GetMapping("/order/{order}")
+	public List<Movie> readAllOrder(@PathVariable(value = "order") String orderDate){
+		
+		if(orderDate.equals("ASC")) {
+			List<Movie> movies = StreamSupport
+					.stream(movieService.findAllOrderAsc().spliterator(), false)
+					.collect(Collectors.toList());
+			return movies;
+		}else{
+			List<Movie> movies = StreamSupport
+					.stream(movieService.findAllOrderDesc().spliterator(), false)
+					.collect(Collectors.toList());
+			return movies;
+		}
+		
+	}
 }

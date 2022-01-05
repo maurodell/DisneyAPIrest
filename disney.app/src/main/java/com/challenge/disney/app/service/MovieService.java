@@ -8,6 +8,10 @@ public interface MovieService {
 	
 	public Iterable<Movie> findAll();
 	
+	public Iterable<Movie> findAllOrderAsc();
+	
+	public Iterable<Movie> findAllOrderDesc();
+	
 	public Optional<Movie> findById(Long id);
 	
 	public Movie save(Movie movie);
