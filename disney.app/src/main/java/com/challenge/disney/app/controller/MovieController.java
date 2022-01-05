@@ -29,8 +29,12 @@ public class MovieController {
 	
 	@PostMapping
 	public ResponseEntity<?> create(@RequestBody Movie movie){
+		
+		if(movie.getQualification() >= 1 && movie.getQualification() <= 5) {
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(movieService.save(movie));
+		}
+		return ResponseEntity.notFound().build();
 	}
 	
 	@GetMapping("/{id}")
@@ -50,16 +54,15 @@ public class MovieController {
 		if(!movie.isPresent()) {
 			return ResponseEntity.notFound().build();
 		}
-		
 		movie.get().setTitle(movieDetails.getTitle());
 		movie.get().setCharacter(movieDetails.getCharacter());
 		movie.get().setDate(movieDetails.getDate());
 		movie.get().setGender(movieDetails.getGender());
 		movie.get().setImg(movieDetails.getImg());
 		movie.get().setQualification(movieDetails.getQualification());
-		
+			
 		return ResponseEntity.status(HttpStatus.CREATED)
-				.body(movieService.save(movie.get()));
+			.body(movieService.save(movie.get()));
 	}
 	
 	@DeleteMapping("/{id}")
@@ -71,12 +74,30 @@ public class MovieController {
 		return ResponseEntity.ok().build();
 	}
 	
-	@GetMapping
+	@GetMapping("/all")
 	public List<Movie> readAll(){
 		List<Movie> movies = StreamSupport
 				.stream(movieService.findAll().spliterator(), false)
 				.collect(Collectors.toList());
 		
 		return movies;
+	}
+	
+	@GetMapping
+	public List<Movie> readAllDefined(){
+		List<Movie> movies = StreamSupport
+				.stream(movieService.readAllDefined().spliterator(), false)
+				.collect(Collectors.toList());
+		
+		return movies;
+	}
+	
+	@GetMapping("/name/{name}")
+	public ResponseEntity<?> findByName(@PathVariable(value = "name") String title){
+		Optional<Movie> movie = movieService.searchByTitle(title);
+		if(!movie.isPresent()) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(movie);
 	}
 }

@@ -96,8 +96,9 @@ public class Movie implements Serializable{
 		return qualification;
 	}
 
-	public void setQualification(Integer qualification) {
+	public void setQualification(Integer qualification){
 		this.qualification = qualification;
+		
 	}
 
 	public Character getCharacter() {

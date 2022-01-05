@@ -13,4 +13,10 @@ public interface MovieService {
 	public Movie save(Movie movie);
 	
 	public void deleteById(Long id);
+	
+	public Iterable<Movie> readAllDefined();
+	
+	public Optional<Movie> searchByTitle(String title);
+	
+	public Iterable<Movie> readGender(String gender);
 }

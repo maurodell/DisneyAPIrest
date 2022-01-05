@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.challenge.disney.app.entity.Movie;
 import com.challenge.disney.app.repository.MovieRepository;
 
@@ -37,6 +36,24 @@ public class MovieServiceImp implements MovieService{
 	@Transactional
 	public void deleteById(Long id) {
 		movieRepository.deleteById(id);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Iterable<Movie> readAllDefined() {
+		return movieRepository.readAllDefined();
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Optional<Movie> searchByTitle(String title) {
+		return movieRepository.searchByTitle(title);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Iterable<Movie> readGender(String gender) {
+		return movieRepository.readGender(gender);
 	}
 
 }
