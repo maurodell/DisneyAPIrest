@@ -32,7 +32,7 @@ import com.challenge.disney.app.entity.Movie;
 import com.challenge.disney.app.service.CharacterService;
 
 @RestController
-@RequestMapping("/v2/character")
+@RequestMapping("/character")
 public class CharacterController {
 	
 	@Autowired
@@ -46,7 +46,7 @@ public class CharacterController {
 	
 	public static final String CHARACTER_UPLOADED_FOLDER = "images/character/";
 	
-	@PostMapping("/image/character")
+	@PostMapping("/image")
 	public ResponseEntity<byte[]> uploadImage(@RequestParam("id_character")Long idCharacter, @RequestParam("file") MultipartFile multipartFile, 
 			UriComponentsBuilder componentsBuilder){
 		if(idCharacter == null) {
