@@ -25,7 +25,7 @@ public class Character implements Serializable{
 	@Column(name = "name")
 	private String name;
 	
-	@Column(name = "img")
+	@Column(name = "img", nullable = true)
 	private String img;
 	
 	@Column(name = "age")

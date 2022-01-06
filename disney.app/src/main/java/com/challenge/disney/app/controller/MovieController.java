@@ -52,7 +52,7 @@ public class MovieController {
 	public static final String MOVIE_UPLOADED_FOLDER = "images/movie/";
 	
 	//@RequestMapping(value = "/image/{id_movie}", method = RequestMethod.POST, headers=("content-type=multipart/form-data"))
-	@PostMapping("/image")
+	@PostMapping("/image/movie")
 	public ResponseEntity<byte[]> uploadImage(@RequestParam("id_movie")Long idMovie, @RequestParam("file") MultipartFile multipartFile, 
 			UriComponentsBuilder componentsBuilder){
 		if(idMovie == null) {
@@ -67,7 +67,7 @@ public class MovieController {
 			return ResponseEntity.notFound().build();
 		}
 		
-		if(movie.getImg() != null || !movie.getImg().isEmpty()) {
+		if(movie.getImg() != null && !movie.getImg().isEmpty()) {
 			String fileName = movie.getImg();
 			Path path = Paths.get(fileName);
 			File f = path.toFile();
