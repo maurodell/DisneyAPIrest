@@ -50,7 +50,6 @@ public class MovieController {
 	
 	public static final String MOVIE_UPLOADED_FOLDER = "images/movie/";
 	
-	//@RequestMapping(value = "/image/{id_movie}", method = RequestMethod.POST, headers=("content-type=multipart/form-data"))
 	@PostMapping("/image")
 	public ResponseEntity<byte[]> uploadImage(@RequestParam("id_movie")Long idMovie, @RequestParam("file") MultipartFile multipartFile, 
 			UriComponentsBuilder componentsBuilder){

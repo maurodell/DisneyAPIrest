@@ -1,0 +1,477 @@
+{
+	"info": {
+		"_postman_id": "f03f045a-0d0a-4b10-9a11-55e81c085358",
+		"name": "ChallengeSpringBootAPIDisney",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Folder",
+			"item": [],
+			"description": "Collection of Challenge API rest Alkemy."
+		},
+		{
+			"name": "localhost:8083/sendmail/delloliomauro@gmail.com",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8083/sendmail/delloliomauro@gmail.com",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"sendmail",
+						"delloliomauro@gmail.com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8083/auth/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"name\":\"Pepe\", \r\n    \"username\":\"pepe03\", \r\n    \"email\":\"pepe@gmail.com\", \r\n    \"password\":\"123456\",\r\n    \"roles\":[\"user\"]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8083/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8083/auth/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"username\":\"pepe03\", \r\n    \"password\":\"123456\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8083/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8083/character",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Micky\",\r\n    \"age\":\"93\",\r\n    \"weight\":\"46\",\r\n    \"history\":\"Es un personaje de dibujos animados y emblema de la compañía Disney\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8083/character",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"character"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8083/character/image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_character",
+							"value": "6",
+							"type": "default"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/mdo/Downloads/mickey-mouse.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8083/character/image",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"character",
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8083/character",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8083/character",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"character"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8083/character/2",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n        \"name\": \"Minnie\",\r\n        \"age\": 80,\r\n        \"weight\": 36.0,\r\n        \"history\": \"Es la novia de Micky\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8083/character/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"character",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8083/character/2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8083/character/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"character",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8083/character/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8083/character/all",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"character",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8083/character/name/pluto",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8083/character/name/pluto",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"character",
+						"name",
+						"pluto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8083/character/age/93",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8083/character/age/93",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"character",
+						"age",
+						"93"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8083/movies",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Las aventuras de Micky y Pluto\",\r\n    \"date\": \"03-enero-2022\",\r\n    \"qualification\": 4,\r\n    \"mo_character\":[\"6\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8083/movies",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8083/movies/image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_movie",
+							"value": "1",
+							"type": "default"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/mdo/Downloads/movie-micky.jpeg"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8083/movies/image",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"movies",
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8083/movies/name/Pocahontas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8083/movies/name/Pocahontas",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"movies",
+						"name",
+						"Pocahontas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8083/movies/order/DESC",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8083/movies/order/DESC",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"movies",
+						"order",
+						"DESC"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8083/movies/order/DESC",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8083/movies/order/ASC",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"movies",
+						"order",
+						"ASC"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8083/movies/3",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8083/movies/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"movies",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8083/movies/1",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"title\": \"Las increibles aventuras de Micky y Pluto\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8083/movies/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"movies",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
